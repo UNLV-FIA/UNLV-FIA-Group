@@ -20,6 +20,11 @@ a {
     text-decoration: none;
     }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: #a0a3a6;
+
+}
+
 body, html {
   height: 100%;
   margin: 0;
