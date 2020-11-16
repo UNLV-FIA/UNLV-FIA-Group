@@ -1,28 +1,37 @@
 a {
   text-decoration: none;
-  color: #868e96;
+  color:#a0a3a6;
   }
 
   a:link {
     text-decoration: none;
     }
     
-    a:visited {
+  a:visited {
     text-decoration: none;
     }
-    
+
     a:hover {
     text-decoration: none;
     color: #f8f9fa;
     }
-    
+
     a:active {
     text-decoration: none;
     }
 
+    p{
+      color: #a0a3a6;
+    }
+    
 .navbar-dark .navbar-nav .nav-link {
   color: #a0a3a6;
 
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: 0;
 }
 
 body, html {
