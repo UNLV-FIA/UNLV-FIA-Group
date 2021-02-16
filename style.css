@@ -146,7 +146,7 @@ h1 {
 
 
 .ptext .border.trans {
-  background-color: black;
+  background-color: transparent;
 }
 
 @media(max-width:568px){
