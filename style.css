@@ -255,3 +255,13 @@ padding: 15px;
   border: solid 3px black;
   border-radius: 10px;
 }
+.close{
+  font-weight: unset;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.skip-link{
+  transform: translateY(-100%);
+}
+.skip-link:focus{
+  transform: translateY(0%);
+}
