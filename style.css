@@ -260,7 +260,7 @@ padding: 15px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .skip-link{
-  transform: translateX(-500%);
+  transform: translateX(-1000%);
 }
 .skip-link:focus{
   transform: translateX(0%);
