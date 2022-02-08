@@ -25,18 +25,18 @@ a:active {
   text-decoration: none;
 }
 
-p{
+p, h6 {
   color: #a0a3a6;
 }
     
 .navbar-dark .navbar-nav .nav-link {
   color: #a0a3a6;
-
 }
 
 ul {
   list-style-position: inside;
   padding-left: 0;
+  margin: 0;
 }
 
 body, html {
@@ -264,4 +264,7 @@ padding: 15px;
 }
 .skip-link:focus{
   transform: translateX(0%);
+}
+.nav-link {
+  display: inline;
 }
