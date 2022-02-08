@@ -25,7 +25,7 @@ a:active {
   text-decoration: none;
 }
 
-p{
+p, h6 {
   color: #a0a3a6;
 }
     
