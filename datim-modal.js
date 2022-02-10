@@ -282,6 +282,8 @@ datimModals.Utils = datimModals.Utils || {};
         // While this dialog is open, we use these to make sure that focus never
         // leaves the document even if dialogNode is the first or last node.
         let preDiv = document.createElement("div");
+        // prevents weird visual glitch of scrolling to top of page
+        preDiv.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1px; height: 1px;";
         this.preNode = this.dialogNode.parentNode.insertBefore(
             preDiv,
             this.dialogNode
@@ -290,6 +292,8 @@ datimModals.Utils = datimModals.Utils || {};
         this.preNode.tabIndex = 0;
 
         let postDiv = document.createElement("div");
+        // prevents weird visual glitch of scrolling to bottom of page
+        postDiv.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1px; height: 1px;";
         this.postNode = this.dialogNode.parentNode.insertBefore(
             postDiv,
             this.dialogNode.nextSibling
@@ -405,7 +409,7 @@ datimModals.Utils = datimModals.Utils || {};
         if (datimModals.Utils.IgnoreUntilFocusChanges) {
             return;
         }
-
+        
         let currentDialog = datimModals.getCurrentDialog();
         if (currentDialog.dialogNode.contains(event.target)) {
             currentDialog.lastFocus = event.target;
