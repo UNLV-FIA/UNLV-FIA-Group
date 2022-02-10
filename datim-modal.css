@@ -6,6 +6,7 @@
 [datim-modal] {
   box-sizing: border-box;
   min-height: 100vh;
+  outline: none !important;
 }
 
 @media screen and (min-width: 640px) {
