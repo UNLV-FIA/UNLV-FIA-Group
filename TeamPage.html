@@ -11,6 +11,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="datim-modal.css">
+  <script defer src="./datim-modal.js"></script>
   </head>
 <body>
   <header>
@@ -723,15 +725,15 @@
                </div>
            </div>
           </div>
-          <div class="col-sm-3 col-xs" style="min-width: 210px;">
+          <div class="col-sm-3 col-xs" style="min-width: 210px;" >
             <div class="id_presentation">
               <img class="img_staff" height="200px" width="200px" src="https://raw.githubusercontent.com/aromaine-unlv/Profile-Pictures/main/anthony-team-profile.jpg" alt="Anthony's Picture"/>
               <div class="text_pres">Anthony Romaine</br>
                 <div class="subtext_pres">Student Programmer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal20">Anthony's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal20" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" onclick="openDialog('myModal20', this)">Anthony's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal20" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -739,7 +741,7 @@
                           Off Campus</br>
                           anthony.romaine@unlv.edu</p>
                         </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close">&times;</button>
+                        <button type="button" class="close" aria-label="close" onclick="closeDialog(this)">&times;</button>
                       </div>
                       <div class="modal-body">
                         <p class="text-justify">Anthony Romaine joined the UNLV-FIA group as a student intern in September, 2021. His major is Computer Science and he aims to complete his Bachelor of Science degree during the Fall 2023 semester at the University of Nevada, Las Vegas (UNLV). Anthony mainly works on the DATIM project to ensure 508 standards are upheld across the site. In his free time, he enjoys hiking, traveling, working out, and spending time with his family.
@@ -760,7 +762,7 @@
                         </p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeDialog(this)">Close</button>
                       </div>
                     </div>
                   </div>
