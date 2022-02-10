@@ -80,11 +80,16 @@ datimModals.Utils = datimModals.Utils || {};
             case "SELECT":
             case "TEXTAREA":
                 return true;
+            case "DIV":
+                if(element.hasAttribute("datim-modal")){
+                    return true;
+                }
             default:
                 return false;
         }
     }; // end isFocusable
 
+    // SECTION attemptFocus
     /*
      * @description Attempts to set focus to an element
      * @param element
@@ -110,8 +115,9 @@ datimModals.Utils = datimModals.Utils || {};
 
         // check whether the specified element was able to be focused and return result
         return document.activeElement === element;
-    }; // end attemptFocus
+    }; // !SECTION END attemptFocus
 
+    // SECTION focusFirstDescendant
     /*
      * @description Set focus on descendant nodes until the first focusable element is found.
      * @param element
@@ -129,8 +135,9 @@ datimModals.Utils = datimModals.Utils || {};
             }
         }
         return false;
-    } // focusFirstDescendant
+    } // !SECTION END focusFirstDescendant
 
+    // SECTION focusLastDescendant
     /*
      * @description Set focus on the last descendant node that is focusable.
      * @param element
@@ -148,7 +155,7 @@ datimModals.Utils = datimModals.Utils || {};
             }
         }
         return false;
-    }; // end focusLastDescendent
+    }; // !SECTION END focusLastDescendant
 
     // Array that keeps track of open modals
     datimModals.OpenDialogList = datimModals.OpenDialogList || [];
@@ -405,22 +412,36 @@ datimModals.Utils = datimModals.Utils || {};
     }
 
     // trapFocus function used for focus event listener
+    // SECTION trapFocus
     datimModals.Dialog.prototype.trapFocus = function (event) {
         if (datimModals.Utils.IgnoreUntilFocusChanges) {
             return;
         }
         
+        let focusSet = true;
         let currentDialog = datimModals.getCurrentDialog();
-        if (currentDialog.dialogNode.contains(event.target)) {
+        if (currentDialog.dialogNode.contains(event.target)) { // check to see if target is in current dialog
             currentDialog.lastFocus = event.target;
         } else {
-            datimModals.Utils.focusFirstDescendant(currentDialog.dialogNode);
+            // attempt to focus first descendant
+            focusSet = datimModals.Utils.focusFirstDescendant(currentDialog.dialogNode);
+            
+            // check if focusFirstDescendant was able to set focus
             if (currentDialog.lastFocus == document.activeElement) {
-                datimModals.Utils.focusLastDescendant(currentDialog.dialogNode);
+                focusSet = datimModals.Utils.focusLastDescendant(currentDialog.dialogNode);
+            }
+
+            if (!focusSet) { // no focusable elements were found - keep focus on dialog
+                // if tabindex is -2 developer has opted out of tabIndex 0 automatically being added (making element focusable)
+                if(currentDialog.dialogNode.tabIndex != -2) {
+                    // set focus on modal
+                    currentDialog.dialogNode.tabIndex = "0";
+                }
+                datimModals.Utils.attemptFocus(currentDialog.dialogNode);
             }
             currentDialog.lastFocus = document.activeElement;
         }
-    }; // end trapFocus 
+    }; // !SECTION END trapFocus 
 
     window.openDialog = function (dialogId, focusAfterClosed, focusFirst) {
         new datimModals.Dialog(dialogId, focusAfterClosed, focusFirst);
