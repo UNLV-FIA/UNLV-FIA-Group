@@ -157,6 +157,26 @@ datimModals.Utils = datimModals.Utils || {};
         return false;
     }; // !SECTION END focusLastDescendant
 
+    // SECTION hasFocusableElements
+    /*
+     * @description Returns whether or not an element has a focusable element
+     * @param element
+     *          DOM node for which to find a focusable descendant
+     * @returns {boolean}
+     *      true if a focusable element is found
+     */
+    datimModals.Utils.hasFocusableElements = function (element) {
+        for (let i = 0; i < element.childNodes.length; i++) {
+            let child = element.childNodes[i];
+            // attempt to focus child, or check if any children of the child can be focused
+            if (datimModals.Utils.isFocusable(child) ||
+                datimModals.Utils.hasFocusableElements(child)) {
+                return true;
+            }
+        }
+        return false;
+    }; // !SECTION END hasFocusableElements
+
     // Array that keeps track of open modals
     datimModals.OpenDialogList = datimModals.OpenDialogList || [];
 
@@ -187,6 +207,19 @@ datimModals.Utils = datimModals.Utils || {};
         }
 
         return false;
+    }
+
+    /**
+    * @description Focuses the current dialog (used in cases when dialog has no focusable elements)
+    */
+    datimModals.focusCurrentDialog = function() {
+        let currentDialog = datimModals.getCurrentDialog();
+        // if tabindex is -2 developer has opted out of tabIndex 0 automatically being added (making element focusable)
+        if(currentDialog.dialogNode.tabIndex != -2) {
+            // set focus on modal
+            currentDialog.dialogNode.tabIndex = "0";
+        }
+        datimModals.Utils.attemptFocus(currentDialog.dialogNode);
     }
 
     /**
@@ -326,6 +359,8 @@ datimModals.Utils = datimModals.Utils || {};
         // check to see if user specified an element to focus first
         if (this.focusFirst) {
             this.focusFirst.focus();
+        } else if(!datimModals.Utils.hasFocusableElements(this.dialogNode)){ // element has no focusable elements
+            datimModals.focusCurrentDialog();
         } else { // else focus the first descendant
             datimModals.Utils.focusFirstDescendant(this.dialogNode);
         }
@@ -343,6 +378,7 @@ datimModals.Utils = datimModals.Utils || {};
         });
     }
 
+    // SECTION close
     /**
    * @description
    *  Hides the current top dialog,
@@ -372,7 +408,7 @@ datimModals.Utils = datimModals.Utils || {};
         } else {
             document.body.classList.remove(datimModals.Utils.dialogOpenClass);
         }
-    } // end close
+    } // !SECTION END close
 
     /**
     * @description
@@ -432,12 +468,7 @@ datimModals.Utils = datimModals.Utils || {};
             }
 
             if (!focusSet) { // no focusable elements were found - keep focus on dialog
-                // if tabindex is -2 developer has opted out of tabIndex 0 automatically being added (making element focusable)
-                if(currentDialog.dialogNode.tabIndex != -2) {
-                    // set focus on modal
-                    currentDialog.dialogNode.tabIndex = "0";
-                }
-                datimModals.Utils.attemptFocus(currentDialog.dialogNode);
+                datimModals.focusCurrentDialog();
             }
             currentDialog.lastFocus = document.activeElement;
         }
