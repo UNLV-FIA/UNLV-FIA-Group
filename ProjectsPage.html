@@ -16,45 +16,51 @@
   <header>
     <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
         <a href="index.html" class="navbar-brand">UNLV-FIA</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="hamburger menu">
+          <div style="display: inline-flex;">
             <span class="navbar-toggler-icon"></span>
+            <div style="padding-left: 5px; padding-top: 7px">Menu</div>
+          </div>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-              <a href="index.html" class="nav-item nav-link">Home</a>
-              <a href="TeamPage.html" class="nav-item nav-link">Team</a>
-              <a href="ProjectsPage.html" class="nav-item nav-link active">Projects</a>
+              <ul> 
+                <li style="display:inline"><a href="index.html" class="nav-item nav-link">Home</a></li>
+                <li style="display:inline"><a href="TeamPage.html" class="nav-item nav-link">Team</a></li>
+                <li style="display:inline"><a href="ProjectsPage.html" class="nav-item nav-link active">Projects</a></li>
+              </ul>
             </div>
+            <a href="#footerID" class="skip-link">Skip to Footer</a>
         </div>
     </nav>
   </header>
 <div class="pimg_7">
   <div class="ptext">
-    <span class="border">
+    <div class="border">
         <h1>UNLV-FIA</h1>
         Co-Projects
-    </span>
+    </div>
   </div>
 </div>
 <section class="section section-dark">
-    <h2>Our Co-Projects</h2></br>
-    <p>Our staff at UNLV works in partnership with the Forest Inventory and Analysis (FIA) National Operations Team to optimize and standardize the use of science tools and storage protocols. We collaborate with FIA staff on a variety of data management and data delivery system projects and co-tasks, contributing support in the areas of:</br></br></p>
+    <h2>Our Co-Projects</h2><br>
+    <p>Our staff at UNLV works in partnership with the Forest Inventory and Analysis (FIA) National Operations Team to optimize and standardize the use of science tools and storage protocols. We collaborate with FIA staff on a variety of data management and data delivery system projects and co-tasks, contributing support in the areas of:<br><br></p>
       <ul>
-      <li>System, database, and data management support</br></li>
-      <li>Program and project management in support of forestry models and tools</br></li>
-      <li>Technical and user documentation for forestry models and tools</br></li>
-      <li>Quality assurance for data management</br></li>
-      <li>Informational content development</br></li>
-      <li>Data management and analytical tool development</br></li>
-      <li>Accessibility compliance</br></li>
-      <li>Customer support</br></br></li>
+      <li>System, database, and data management support<br></li>
+      <li>Program and project management in support of forestry models and tools<br></li>
+      <li>Technical and user documentation for forestry models and tools<br></li>
+      <li>Quality assurance for data management<br></li>
+      <li>Informational content development<br></li>
+      <li>Data management and analytical tool development<br></li>
+      <li>Accessibility compliance<br></li>
+      <li>Customer support<br><br></li>
     </ul>
-      <p>Below is a brief introduction to the primary projects we are involved in.</br></br></p>
+      <p>Below is a brief introduction to the primary projects we are involved in.<br><br></p>
 </section>
 <section class="section section-light">
-  <h2>Primary UNLV-FIA Co-Projects</h2></br></br>
-        <table class="table table-striped">
+  <h2 id="header2">Primary UNLV-FIA Co-Projects</h2><br><br>
+        <table class="table table-striped" aria-labelledby="header2">
           <thead>
             <tr>
               <th scope="col">Acronym</th>
@@ -99,9 +105,14 @@
               <td>Projects to extract, transform, and load (ETL) data from source databases into target databases include the FIA2FVS Refactor, which converts FIA data into Forest Vegetation Simulator (FVS) format (“FIA2FVS”). Another ETL’s data from NIMS into the Field Sampled Vegetation (FSVeg) database.</td>
             </tr>
             <tr>
-              <th scope="row">Maestro</br></br></br></br>uMaestro</th>
-              <td style="width: 200px; text-align: left;">Maestro (National NIMS Portal System)</br></br>Urban Maestro (uMaestro)</td>
-              <td>The National NIMS Portal System, referred to as “Maestro”, is a web tool used for data management to upload post-field processed and quality assured data into the NIMS database. Urban Maestro (“uMaestro”) is a new version of Maestro that will accommodate urban forestry data using modern and adaptable technologies.</td>
+              <th scope="row">Maestro</th>
+              <td style="width: 200px; text-align: left;">Maestro (National NIMS Portal System)</td>
+              <td>The National NIMS Portal System, referred to as “Maestro”, is a web tool used for data management to upload post-field processed and quality assured data into the NIMS database.</td>
+            </tr>
+            <tr>
+              <th scope="row">uMaestro</th>
+              <td style="width: 200px; text-align: left;">Urban Maestro (uMaestro)</td>
+              <td>Urban Maestro (“uMaestro”) is a new version of Maestro that will accommodate urban forestry data using modern and adaptable technologies.</td>
             </tr>
             <tr>
               <th scope="row">NIMAC</th>
@@ -147,7 +158,7 @@
         </table>
 </section>
     <!-- Footer -->
-    <span style="font-size: 17px;">
+    <div style="font-size: 17px;">
       <footer class="page-footer font-small bg-dark pt-4 text-secondary">
       
           <!-- Footer Links -->
@@ -157,13 +168,13 @@
             <div class="row text-center text-md-left mt-3 pb-3">
         
               <!-- Grid column -->
-              <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mt-3">
-                <p class="h6 text-uppercase mb-4 font-weight-bold">Navigation</p>
+              <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mt-3" id="footerID">
+                <h6 class="h6 text-uppercase mb-4 font-weight-bold">Navigation</h6>
       
                 <ul style="list-style-type:none;">
-                  <li></li><a href="./index.html#aboutFIA">About Us</a></br></li>
-                  <li><a href="./index.html#fiaMission">Our Mission</a></br></li>
-                  <li><a href="./index.html#fiaTeam">Our Team</a></br></li>
+                  <li><a href="./index.html#aboutFIA">About Us</a></li>
+                  <li><a href="./index.html#fiaMission">Our Mission</a></li>
+                  <li><a href="./index.html#fiaTeam">Our Team</a></li>
                   <li><a href="./index.html#fiaProjects">Our Projects</a></li>
                 </ul>
                 
@@ -174,11 +185,11 @@
         
               <!-- Grid column -->
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <p class="h6 text-uppercase mb-4 font-weight-bold">Useful links</p>
+                <h6 class="h6 text-uppercase mb-4 font-weight-bold">Useful links</h6>
           
                 <ul style="list-style-type:none;">
-                  <li><a href="https://www.fia.fs.fed.us/" target="_blank">FIA Website</a></br></li>
-                  <li><a href="https://www.unlv.edu/" target="_blank">UNLV Website</a></br></li>
+                  <li><a href="https://www.fia.fs.fed.us/" target="_blank">FIA Website</a></li>
+                  <li><a href="https://www.unlv.edu/" target="_blank">UNLV Website</a></li>
                   <li><a href="https://geoscience.unlv.edu/" target="_blank">UNLV - Geoscience Department Website</a></li>
                 </ul>
       
@@ -189,13 +200,13 @@
         
               <!-- Grid column -->
               <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mt-3">
-                <p class="h6 text-uppercase mb-4 font-weight-bold">Address</p>
+                <h6 class="h6 text-uppercase mb-4 font-weight-bold">Address</h6>
 
                 <p>
-                  UNLV - Department of Geoscience</br>
-                  Lilly Fong Geoscience Building</br>
-                  4505 Maryland Parkway</br>
-                  Las Vegas, Nevada 89154-4010</br></br>
+                  UNLV - Department of Geoscience<br>
+                  Lilly Fong Geoscience Building<br>
+                  4505 Maryland Parkway<br>
+                  Las Vegas, Nevada 89154-4010<br><br>
                 </p>
                 
               </div>
@@ -205,13 +216,13 @@
         
               <!-- Grid column -->
               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <p class="h6 text-uppercase mb-4 font-weight-bold">Contact</p>
+                <h6 id="contactID" class="h6 text-uppercase mb-4 font-weight-bold">Contact</h6>
 
                 <p>
-                <i class="fas fa-envelope mr-3" aria-label="Envelope Icon"></i> gretchen.andrew@unlv.edu</br>
-                <i class="fas fa-phone mr-3" aria-label="Phone Icon"></i> (702)-895-1437</br>
-                <i class="fas fa-print mr-3" aria-label="Fax Icon"></i> (702)-895-4064</br>
-              </p>
+                  <i class="fas fa-envelope mr-3" aria-label="Envelope Icon"></i><a aria-describedby="contactID" href="mailto:gretchen.andrew@unlv.edu">gretchen.andrew@unlv.edu</a><br>
+                  <i class="fas fa-phone mr-3" aria-label="Phone Icon"></i><a aria-describedby="contactID" href="tel:7028951437">(702)-895-1437 (Phone)</a><br>
+                  <i class="fas fa-print mr-3" aria-label="Fax Icon"></i><a aria-describedby="contactID" href="tel:7028954064">(702)-895-4064 (Fax)</a><br>
+                </p>
               
               </div>
               <!-- Grid column -->
@@ -228,8 +239,7 @@
               <div class="col-md-7 col-lg-8">
         
                 <!--Copyright-->
-                <p class="text-center text-md-left">© 2020 Copyright: UNLV - GEOSCIENCE DEPARTMENT
-                  </a>
+                <p class="text-center text-md-left" id="copyRightId">
                 </p>
         
               </div>
@@ -248,6 +258,7 @@
         
         </footer>
         <!-- Footer -->
-      </span>
+      </div>
+      <script src="main.js"></script>
       </body>
       </html> 

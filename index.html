@@ -15,31 +15,37 @@
   <header>
     <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
         <a href="index.html" class="navbar-brand">UNLV-FIA</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="hamburger menu">
+          <div style="display: inline-flex;">
             <span class="navbar-toggler-icon"></span>
+            <div style="padding-left: 5px; padding-top: 7px">Menu</div>
+          </div>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="TeamPage.html" class="nav-item nav-link">Team</a>
-                <a href="ProjectsPage.html" class="nav-item nav-link">Projects</a>
-            </div>
+          <div class="navbar-nav">
+            <ul> 
+              <li style="display:inline"><a href="index.html" class="nav-item nav-link active">Home</a></li>
+              <li style="display:inline"><a href="TeamPage.html" class="nav-item nav-link">Team</a></li>
+              <li style="display:inline"><a href="ProjectsPage.html" class="nav-item nav-link">Projects</a></li>
+            </ul>
+          </div>
+          <a href="#footerID" class="skip-link">Skip to Footer</a>
         </div>
     </nav>
   </header>
 <div class="pimg_1">
   <div class="ptext">
-    <span class="border">
+    <div class="border">
         <h1>UNLV-FIA</h1>
         Group
-    </span>
+    </div>
   </div>
 </div>
 <section id="aboutFIA" class="section section-light">
-    <h2>About UNLV-FIA</h2></br>
+    <h2>About UNLV-FIA</h2><br>
     <p style="color:black">For the past two decades, our research group at UNLV has worked in partnership with the Forest Inventory and Analysis (FIA) Program, which is part of the research and development (R&D) arm of the USDA Forest Service. As the Nation’s forest census, FIA researches and reports forest status and trends in the United States.  
-      </br></br>
+      <br><br>
       As a university partner to FIA, our work focuses on the agency’s strategic program area of inventory, monitoring and analysis. Our area of emphasis is information management research and development to optimize the storage, delivery, analysis and display of forest inventory data. The support we provide helps to ensure that information about the health and productivity of our Nation’s forests is both timely and accurate. This enables policymakers, land stewards and non-governmental groups to base decisions and assessments related to the health, diversity, and productivity of U.S. forests and grasslands on scientifically credible information.
       </p>
 </section>
@@ -51,7 +57,7 @@
     </div>
 </div>
 <section id="fiaMission" class="section section-dark">
-    <h2>Our Mission</h2></br>
+    <h2>Our Mission</h2><br>
     <p>Our mission is to provide optimal, creative, and responsive information technology solutions for the USDA Forest Service and its partners through data management support, optimal information management solutions for the storage and display of Forest Inventory and Analysis (FIA) data, analytical tool development, data structure maintenance, and project management. We also support UNLV’s mission by promoting community and well-being through education and research and by fostering a climate of innovation and diversity.
     </p>
 </section>
@@ -63,11 +69,11 @@
     </div>
 </div>
 <section id="fiaTeam" class="section section-dark">
-    <h2>Our Team</h2></br>
+    <h2>Our Team</h2><br>
     <p>The earliest cooperative agreement between UNLV and FIA was entered into in 1998. Since that time, our partnership with FIA has continued under consecutive agreements, with our group growing in both size and diversity. We have employed over 60 people since 1998, including 15 student interns, several of whom are now full-time employees. Our staff have come with degrees from various disciplines, including Forestry, Computer Science, Management Information Systems, Soil Science, Geoscience, Biochemistry, Environmental Science, Agricultural Science, Freshwater Ecology, Marine Biology, Zoology, Physics, Chemical Engineering, Cybersecurity, and Law.
-    </br></br>
+    <br><br>
     While our team has expanded in size, diversity, and the scope of work provided to FIA since 1998, we remain dedicated to our core commitment of providing optimal, creative, and responsive solutions for the Forest Service and its partners.
-    <center><a href="TeamPage.html" type="button" class="btn btn-danger btn-sm" role="button" title="Meet our team">Meet Our Team</a></center>
+    <div style="text-align: center;"><a href="TeamPage.html" class="btn btn-danger btn-sm" role="button" tabindex="0">Meet Our Team</a></div>
 </section>
 <div class="pimg_4">
     <div class="ptext">
@@ -77,12 +83,12 @@
     </div>
 </div>
 <section id="fiaProjects" class="section section-light">
-    <h2>Our Co-Projects</h2></br>
+    <h2>Our Co-Projects</h2><br>
     <p style="color:black">Our staff at UNLV works in partnership with the Forest Inventory and Analysis (FIA) National Operations Team to optimize and standardize the use of analytical tools and data structure maintenance. We collaborate with FIA staff on a variety of data management and data delivery system projects and co-tasks.
-      <center><a href="ProjectsPage.html" type="button" class="btn btn-danger btn-sm" role="button" title="List of projects">Co-Projects List</a></center>
+      <div style="text-align: center;"><a href="ProjectsPage.html" class="btn btn-danger btn-sm" role="button" tabindex="0">Co-Projects List</a></div>
 </section>
     <!-- Footer -->
-    <span style="font-size: 17px;">
+    <div style="font-size: 17px;">
 <footer class="page-footer font-small bg-dark pt-4 text-secondary">
 
     <!-- Footer Links -->
@@ -92,13 +98,13 @@
       <div class="row text-center text-md-left mt-3 pb-3">
   
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mt-3">
-          <p class="h6 text-uppercase mb-4 font-weight-bold">Navigation</p>
+        <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mt-3" id="footerID">
+          <h6 class="h6 text-uppercase mb-4 font-weight-bold">Navigation</h6>
 
           <ul style="list-style-type:none;">
-            <li></li><a href="#aboutFIA">About Us</a></br></li>
-            <li><a href="#fiaMission">Our Mission</a></br></li>
-            <li><a href="#fiaTeam">Our Team</a></br></li>
+            <li><a href="#aboutFIA">About Us</a></li>
+            <li><a href="#fiaMission">Our Mission</a></li>
+            <li><a href="#fiaTeam">Our Team</a></li>
             <li><a href="#fiaProjects">Our Projects</a></li>
           </ul>
           
@@ -109,11 +115,11 @@
   
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <p class="h6 text-uppercase mb-4 font-weight-bold">Useful links</p>
+          <h6 class="h6 text-uppercase mb-4 font-weight-bold">Useful links</h6>
     
           <ul style="list-style-type:none;">
-            <li><a href="https://www.fia.fs.fed.us/" target="_blank">FIA Website</a></br></li>
-            <li><a href="https://www.unlv.edu/" target="_blank">UNLV Website</a></br></li>
+            <li><a href="https://www.fia.fs.fed.us/" target="_blank">FIA Website</a></li>
+            <li><a href="https://www.unlv.edu/" target="_blank">UNLV Website</a></li>
             <li><a href="https://geoscience.unlv.edu/" target="_blank">UNLV - Geoscience Department Website</a></li>
           </ul>
           
@@ -124,13 +130,13 @@
   
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mt-3">
-          <p class="h6 text-uppercase mb-4 font-weight-bold">Address</p>
+          <h6 class="h6 text-uppercase mb-4 font-weight-bold">Address</h6>
 
           <p>
-            UNLV - Department of Geoscience</br>
-            Lilly Fong Geoscience Building</br>
-            4505 Maryland Parkway</br>
-            Las Vegas, Nevada 89154-4010</br></br>
+            UNLV - Department of Geoscience<br>
+            Lilly Fong Geoscience Building<br>
+            4505 Maryland Parkway<br>
+            Las Vegas, Nevada 89154-4010<br><br>
           </p>
           
         </div>
@@ -140,11 +146,12 @@
   
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <p class="h6 text-uppercase mb-4 font-weight-bold">Contact</p>
+          <h6 id="contactID" class="h6 text-uppercase mb-4 font-weight-bold">Contact</h6>
+
           <p>
-          <i class="fas fa-envelope mr-3" aria-label="Envelope Icon"></i> gretchen.andrew@unlv.edu</br>
-          <i class="fas fa-phone mr-3" aria-label="Phone Icon"></i> (702)-895-1437</br>
-          <i class="fas fa-print mr-3" aria-label="Fax Icon"></i> (702)-895-4064</br>
+            <i class="fas fa-envelope mr-3" aria-label="Envelope Icon"></i><a aria-describedby="contactID" href="mailto:gretchen.andrew@unlv.edu">gretchen.andrew@unlv.edu</a><br>
+            <i class="fas fa-phone mr-3" aria-label="Phone Icon"></i><a aria-describedby="contactID" href="tel:7028951437">(702)-895-1437 (Phone)</a><br>
+            <i class="fas fa-print mr-3" aria-label="Fax Icon"></i><a aria-describedby="contactID" href="tel:7028954064">(702)-895-4064 (Fax)</a><br>
           </p>
         </div>
         <!-- Grid column -->
@@ -161,8 +168,7 @@
         <div class="col-md-7 col-lg-8">
   
           <!--Copyright-->
-          <p class="text-center text-md-left">© 2020 Copyright: UNLV - GEOSCIENCE DEPARTMENT
-            </a>
+          <p class="text-center text-md-left" id="copyRightId">
           </p>
   
         </div>
@@ -181,6 +187,7 @@
   
   </footer>
   <!-- Footer -->
-</span>
+</div>
+<script src="main.js"></script>
 </body>
 </html>                            
