@@ -46,3 +46,14 @@
 .has-dialog {
   overflow: hidden;
 }
+
+/* Fix to make modal show correctly on screens with a smaller width than 600px */
+/* @media(max-width:600px){
+  [datim-modal] {
+    height: 100%;
+    width: 100%;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+} */
