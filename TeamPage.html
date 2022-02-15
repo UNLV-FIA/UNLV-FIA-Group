@@ -1019,5 +1019,10 @@
         <!-- Footer -->
       </div>
       <script src="main.js"></script>
+      <script>
+        $("img").on("error", function() {
+          $(this).addClass('invalidImageSrc');
+        });
+      </script>
       </body>
       </html>   
