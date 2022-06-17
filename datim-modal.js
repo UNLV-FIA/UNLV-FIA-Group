@@ -51,7 +51,7 @@ datimModals.Utils = datimModals.Utils || {};
      */
     datimModals.Utils.IgnoreUntilFocusChanges = false;
 
-    datimModals.Utils.dialogOpenClass = "has-dialog";
+   // datimModals.Utils.dialogOpenClass = "has-dialog";
 
     /*
      * @description Returns whether the given element is focusable or not
@@ -229,6 +229,10 @@ datimModals.Utils = datimModals.Utils || {};
         // get reference to keyCode of the key pressed
         let key = event.keyCode;
 
+        // edge case for date picker
+        if (key === datimModals.KeyCodes.ESC && event.target.type === "date") {
+            return;
+        }
         // check if key pressed was the ESC key and check if Current Dialog could be closed successfully
         if (key === datimModals.KeyCodes.ESC && datimModals.closeCurrentDialog()) {
             // stops event from bubbling up to parent or capturing down to child elements
@@ -239,6 +243,7 @@ datimModals.Utils = datimModals.Utils || {};
     // add keyup event listener to implement handleEscape functionality
     document.addEventListener('keyup', datimModals.handleEscape);
 
+    
     /**
      * @class
     * @description Dialog object providing modal focus management.
@@ -250,12 +255,29 @@ datimModals.Utils = datimModals.Utils || {};
     * @param focusAfterClosed
     *          Either the DOM node or the ID of the DOM node to focus when the
     *          dialog closes.
-    * @param focusFirst
+    * @param options (optional)
+    *          Object for optional parameters.
+    *          USAGE:
+    *             openDialog('modalID', 'showBtnID', {
+    *                  focusFirst: firstInputElement,
+    *                  clearDialog: true
+    *             });
+    *     @param options.focusFirst
     *          Optional parameter containing either the DOM node or the ID of the
     *          DOM node to focus when the dialog opens. If not specified, the
     *          first focusable element in the dialog will receive focus.
+     *
+     *         default value = undefined (first focusable input will be focused)
+     *
+    *     @param options.clearDialog
+    *         Optional parameter containing a boolean value indicating whether
+    *         to clear the dialog when it is opened
+    *
+     *        default value = undefined (by default the modal will be cleared when opened)
     */
-    datimModals.Dialog = function (dialogId, focusAfterClosed, focusFirst) {
+    datimModals.Dialog = function (dialogId, focusAfterClosed, options) {
+        // set options (optional parameter)
+        options = options || {};
         // get reference to modal/dialog
         this.dialogNode = document.getElementById(dialogId);
         // make sure element was found
@@ -271,27 +293,6 @@ datimModals.Utils = datimModals.Utils || {};
             );
         }
 
-        // Wrap in an individual backdrop element if one doesn't exist
-        // TODO: MAKE SURE TO IMPLEMENT THIS STYLE IN STYLESHEET
-        let backdropClass = "datim-dialog-backdrop";
-        if (this.dialogNode.parentNode.classList.contains(backdropClass)) {
-            this.backdropNode = this.dialogNode.parentNode;
-        } else { // create a parent backdrop node
-            this.backdropNode = document.createElement("div");
-            this.backdropNode.className = backdropClass;
-            this.dialogNode.parentNode.insertBefore(
-                this.backdropNode,
-                this.dialogNode
-            );
-            this.backdropNode.appendChild(this.dialogNode);
-        }
-
-        // add active class to backdrop node because its child modal is being opened
-        this.backdropNode.classList.add("active");
-
-        // disable scroll on the body element
-        // TODO: MAKE SURE TO IMPLEMENT THIS STYLE IN STYLESHEET
-        document.body.classList.add(datimModals.Utils.dialogOpenClass);
 
         // user is able to pass in id or element for focusAfterClosed
         // check if user passed in id
@@ -310,10 +311,10 @@ datimModals.Utils = datimModals.Utils || {};
 
         // user is able to pass in id or element for focusFirst
         // check if user passed in id
-        if (typeof focusFirst === "string") {
-            this.focusFirst = document.getElementById(focusFirst);
-        } else if (typeof focusFirst === "object") { // check if user passed in an element
-            this.focusFirst = focusFirst;
+        if (typeof options.focusFirst === "string") {
+            this.focusFirst = document.getElementById(options.focusFirst);
+        } else if (typeof options.focusFirst === "object") { // check if user passed in an element
+            this.focusFirst = options.focusFirst;
         } else {
             this.focusFirst = null;
         }
@@ -324,6 +325,7 @@ datimModals.Utils = datimModals.Utils || {};
         let preDiv = document.createElement("div");
         // prevents weird visual glitch of scrolling to top of page
         preDiv.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1px; height: 1px;";
+        preDiv.setAttribute("aria-label", "topDialogFocusTrap");
         this.preNode = this.dialogNode.parentNode.insertBefore(
             preDiv,
             this.dialogNode
@@ -334,6 +336,7 @@ datimModals.Utils = datimModals.Utils || {};
         let postDiv = document.createElement("div");
         // prevents weird visual glitch of scrolling to bottom of page
         postDiv.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1px; height: 1px;";
+        postDiv.setAttribute("aria-label", "bottomDialogFocusTrap");
         this.postNode = this.dialogNode.parentNode.insertBefore(
             postDiv,
             this.dialogNode.nextSibling
@@ -351,10 +354,18 @@ datimModals.Utils = datimModals.Utils || {};
         this.addListeners();
         // add this dialog to OpenDialogList array
         datimModals.OpenDialogList.push(this);
-        // make sure all inputs are empty
-        this.clearDialog();
-        // TODO: MAKE SURE TO IMPLEMENT THIS STYLE IN STYLESHEET
-        this.dialogNode.className = "default_dialog"; // make visible
+
+        // see if the options.clearDialog parameter was set
+        if (typeof options.clearDialog == "boolean") {
+            if (options.clearDialog) {
+                // make sure all inputs are empty
+                this.clearDialog();
+            }
+        } else { // else by default clear the dialog
+            this.clearDialog();
+        }
+
+        
 
         // check to see if user specified an element to focus first
         if (this.focusFirst) {
@@ -394,19 +405,14 @@ datimModals.Utils = datimModals.Utils || {};
         // remove pre and post node
         datimModals.Utils.remove(this.preNode);
         datimModals.Utils.remove(this.postNode);
-        // TODO: MAKE SURE TO IMPLEMENT THIS STYLE IN STYLESHEET
-        this.dialogNode.className = "hidden";
-        // remove active class on backdrop
-        this.backdropNode.classList.remove("active");
+        
         // return focus to specified focusAfterClosed element (usually element that initiated the modal being shown)
         this.focusAfterClosed.focus();
 
         // If a dialog was open underneath this one, restore its listeners.
         if (datimModals.OpenDialogList.length > 0) {
             // add listeners to new current dialog
-            datimModals.getCurrentDialog.addListeners();
-        } else {
-            document.body.classList.remove(datimModals.Utils.dialogOpenClass);
+            datimModals.getCurrentDialog().addListeners();
         }
     } // !SECTION END close
 
@@ -430,9 +436,7 @@ datimModals.Utils = datimModals.Utils || {};
         // remove pre and post nodes
         datimModals.Utils.remove(this.preNode);
         datimModals.Utils.remove(this.postNode);
-        this.dialogNode.className = "hidden"; // hide current dialog
-        // remove active class on backdrop
-        this.backdropNode.classList.remove("active");
+
         let focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
         new datimModals.Dialog(newDialogId, focusAfterClosed, newFocusFirst);
     }; // end replace
@@ -474,8 +478,8 @@ datimModals.Utils = datimModals.Utils || {};
         }
     }; // !SECTION END trapFocus 
 
-    window.openDialog = function (dialogId, focusAfterClosed, focusFirst) {
-        new datimModals.Dialog(dialogId, focusAfterClosed, focusFirst);
+    window.openDialog = function (dialogId, focusAfterClosed, options) {
+        new datimModals.Dialog(dialogId, focusAfterClosed, options);
     }; // end openDialog
 
     window.closeDialog = function (closeButton) {
@@ -492,4 +496,75 @@ datimModals.Utils = datimModals.Utils || {};
         }
     }; // end replaceDialog
 
+    // NOTE: Add this to file that contains modals
+    // This fixes bootstrap bug that prevents shift+tab from working on first focus element
+    $(function () {
+        $(document).on("shown.bs.modal",
+            function () {
+                // remove listeners added by bootstrap modal
+                // fixes bug where user cannot shift+tab
+                $(document).off('focusin.bs.modal');
+                $(document).off('focusout.bs.modal');
+            });
+
+        
+    });
+
 })();
+
+// Function must stay out of document ready function above in order to work
+/*
+ * Allows datim-modal library (focus keeping functionality) to be used with sweet alerts
+ * @param {string} swalID - ID that you want to give sweet alert (needed for datim-modal library to work)
+ * @param {element} showBtn - element to receive focus after sweet alert is closed
+ */
+function openDatimModalSwal(swalID, showBtn) {
+    // get reference to swalCancel button and add listener to call closeDialog
+    let swalCancelBtn = swal.getCancelButton();
+    swalCancelBtn.addEventListener('click', () => { closeDialog(swalCancelBtn); });
+
+    // get reference to swalCancel button and add listener to call closeDialog
+    let swalConfirmBtn = swal.getConfirmButton();
+    swalConfirmBtn.addEventListener('click', () => { closeDialog(swalConfirmBtn); });
+
+    // get actual swal modal
+    let swalNode = swal.getContainer().childNodes[0];
+    // assign ID to modal
+    swalNode.id = swalID;
+    // add datim-modal attribute so that library recognizes modal
+    swalNode.setAttribute("datim-modal", "");
+
+    // handles clicks outside of sweet alert
+    $(swal.getContainer()).on("click",
+        function(e) {
+            let overlay = swal.getContainer();
+            if (overlay === e.target) {
+                closeDialog(swalCancelBtn);
+            }
+    });
+    // open modal - adds focus tracking functionality to modal
+    openDialog(swalID, showBtn);
+}
+
+/*
+ * Allows datim-modal library (focus keeping functionality) to be used with bootstrap modals
+ * @param {string} modalID - ID for model you want to open
+ * @param {element} showBtn - element to receive focus after modal is closed
+ */
+function openBSModal(modalID, showBtn, options) {
+    // add listener to close dialog when bootstrap has detected that modal has been hidden
+    $("#" + modalID).one("hidden.bs.modal",
+        function (event) {
+            // only closes the current dialog if hidden modal was top modal
+            if (event.target == datimModals.getCurrentDialog().dialogNode) {
+                if (datimModals.closeCurrentDialog()) {
+                    
+                    // stops event from bubbling up to parent or capturing down to child elements
+                    event.stopPropagation();
+                }
+            }
+        });
+
+    openDialog(modalID, showBtn, options);
+}
+
