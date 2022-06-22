@@ -11,6 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script defer src="./datim-modal.js"></script>
   </head>
 <body>
   <header>
@@ -57,8 +58,8 @@
                <div class="text_pres">Brenda J. Buck<br>
               <div class="subtext_pres">Program Director</div></div>
               <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Brenda's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" onclick="openBSModal('myModal', this)">Brenda's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -89,8 +90,8 @@
               <div class="subtext_pres">Project Manager</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal1">Gretchen's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal1" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal1" onclick="openBSModal('myModal1', this)">Gretchen's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal1" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -133,8 +134,8 @@
               <div class="subtext_pres">Database Programmer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalHelenB">Helen's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModalHelenB" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalHelenB" onclick="openBSModal('myModalHelenB', this)">Helen's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModalHelenB" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -171,8 +172,8 @@
               <div class="subtext_pres">Software Engineer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2">John's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal2" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2" onclick="openBSModal('myModal2', this)">John's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal2" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -213,8 +214,8 @@
                 <div class="subtext_pres">Student Programmer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalDave">Dave's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModalDave" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalDave" onclick="openBSModal('myModalDave', this)">Dave's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModalDave" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -260,8 +261,8 @@
               <div class="subtext_pres">Computer Systems Analyst</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal4">Brian's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal4" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal4" onclick="openBSModal('myModal4', this)">Brian's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal4" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -304,8 +305,8 @@
                 <div class="subtext_pres">Student Programmer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal19">Alex's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal19" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal19" onclick="openBSModal('myModal19', this)">Alex's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal19" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -348,8 +349,8 @@
                 <div class="subtext_pres">Oracle Database Programmer</div>
               </div>
               <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalWestly">Westly's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModalWestly" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalWestly"  onclick="openBSModal('myModalWestly', this)">Westly's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModalWestly" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -401,8 +402,8 @@
                 <div class="subtext_pres">Software Engineer</div>
               </div>
               <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal23">Kevin's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal23" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal23" onclick="openBSModal('myModal23', this)">Kevin's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal23" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -445,8 +446,8 @@
                 <div class="subtext_pres">Ecologist</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal22">James's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal22" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal22" onclick="openBSModal('myModal22', this)">James's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal22" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -476,8 +477,8 @@
                 <div class="subtext_pres">Software Engineer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal18">Kelvyn's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal18" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal18" onclick="openBSModal('myModal18', this)">Kelvyn's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal18" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -520,8 +521,8 @@
                 <div class="subtext_pres">Computer Systems Analyst</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal9">Pankey's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal9" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal9" onclick="openBSModal('myModal9', this)">Pankey's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal9" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -564,8 +565,8 @@
                 <div class="subtext_pres">Software Engineer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal10">Patricia's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal10" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal10" onclick="openBSModal('myModal10', this)">Patricia's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal10" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -608,8 +609,8 @@
                 <div class="subtext_pres">Database Analyst</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal13">Jane's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal13" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal13" onclick="openBSModal('myModal13', this)">Jane's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal13" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -652,8 +653,8 @@
                 <div class="subtext_pres">Research Associate</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal14">Natalie's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal14" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal14" onclick="openBSModal('myModal14', this)">Natalie's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal14" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -678,57 +679,13 @@
           </div>
           <div class="col-sm-3 col-xs" style="min-width: 210px;">
             <div class="id_presentation">
-              <img class="img_staff" style="height: 200px; width:200px;"  src="https://raw.githubusercontent.com/aromaine-unlv/Profile-Pictures/main/anthony-team-profile.jpg" alt="Anthony's Picture"/>
-              <div class="text_pres">Anthony Romaine<br>
-                <div class="subtext_pres">Student Programmer</div>
-               </div>
-               <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal20">Anthony's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal20" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <div class="modal-title"><p class="text-justify"><b>Anthony Romaine</b> - Student Programmer<br>
-                          Work Location: Remote<br>
-                          Email: anthony.romaine@unlv.edu</p>
-                        </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close">x</button>
-                      </div>
-                      <div class="modal-body">
-                        <p class="text-justify">Anthony Romaine joined the UNLV-FIA group as a student intern in September, 2021. His major is Computer Science and he aims to complete his Bachelor of Science degree during the Fall 2023 semester at the University of Nevada, Las Vegas (UNLV). Anthony mainly works on the DATIM project to ensure 508 standards are upheld across the site. In his free time, he enjoys hiking, traveling, working out, and spending time with his family.</p>
-                          <table aria-label="Skills" class="table table-striped table-dark">
-                            <tbody>
-                              <tr>
-                                <th scope="row" style="width: 205px;">Proficient Skills</th>
-                                <td>HTML, CSS, JavaScript, React, React Native, Python
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row" style="width: 205px;">Improvement Goals</th>
-                                <td>TypeScript
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>                        
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-               </div>
-           </div>
-          </div>
-          <div class="col-sm-3 col-xs" style="min-width: 210px;">
-            <div class="id_presentation">
               <img class="img_staff" style="height: 200px; width:200px; object-fit: cover;" src="https://camo.githubusercontent.com/9fe35358cdf8b635be783f2dc442002bf76937e3a1ca421f1c18fdfe3d5ceffc/68747470733a2f2f696d616765732e7a656e68756275736572636f6e74656e742e636f6d2f3565653261353061376631356563336465353638303037652f39363134643266382d663532322d346134332d623366642d636465353135616230643932" alt="Larry's Picture"/>
               <div class="text_pres">Larry Royer<br>
                 <div class="subtext_pres">Information Specialist</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalLarry">Larry's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModalLarry" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalLarry" onclick="openBSModal('myModalLarry', this)">Larry's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModalLarry" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -772,8 +729,8 @@
                 <div class="subtext_pres">Student Programmer</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalSharma">Sudipti's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModalSharma" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalSharma" onclick="openBSModal('myModalSharma', this)">Sudipti's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModalSharma" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -816,8 +773,8 @@
                 <div class="subtext_pres">Database Analyst</div>
                </div>
                <div class="container" style="text-align: center;">
-                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal17">Ron's Profile</button>
-                <div class="modal fade" tabindex="-1" id="myModal17" role="dialog">
+                <button type="button" style="margin-top: 10px;" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal17" onclick="openBSModal('myModal17', this)">Ron's Profile</button>
+                <div class="modal fade" tabindex="-1" id="myModal17" role="dialog" datim-modal>
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">

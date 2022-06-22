@@ -158,6 +158,13 @@ h1 {
   .pimg_1, .pimg_2, .pimg_3, .pimg_4{
     background-attachment:scroll;
   }
+  [datim-modal] {
+    height: 100%;
+    width: 100%;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
 }
 
 .id_presentation {
