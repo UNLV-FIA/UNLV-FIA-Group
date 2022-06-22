@@ -556,13 +556,17 @@ function openBSModal(modalID, showBtn, options) {
     $("#" + modalID).one("hidden.bs.modal",
         function (event) {
             // only closes the current dialog if hidden modal was top modal
-            if (event.target == datimModals.getCurrentDialog().dialogNode) {
-                if (datimModals.closeCurrentDialog()) {
-                    
-                    // stops event from bubbling up to parent or capturing down to child elements
-                    event.stopPropagation();
+            let currentDialog = datimModals.getCurrentDialog();
+            if(currentDialog){ // check if there is a dialog open
+                if (event.target == datimModals.getCurrentDialog().dialogNode) {
+                    if (datimModals.closeCurrentDialog()) {
+                        
+                        // stops event from bubbling up to parent or capturing down to child elements
+                        event.stopPropagation();
+                    }
                 }
             }
+            
         });
 
     openDialog(modalID, showBtn, options);
