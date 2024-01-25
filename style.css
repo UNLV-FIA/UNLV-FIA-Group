@@ -207,6 +207,9 @@ padding: 15px;
 .img_staff {
   opacity:0.8;
   transition: 1s all;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .img_staff:hover {
