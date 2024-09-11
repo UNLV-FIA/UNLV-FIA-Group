@@ -3,11 +3,7 @@ a {
   color:#a0a3a6;
 }
 
-a:link {
-  text-decoration: none;
-}
-    
-a:visited {
+a:link, a:visited {
   text-decoration: none;
 }
 
