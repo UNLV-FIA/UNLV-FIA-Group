@@ -55,38 +55,38 @@ body, html {
 }
 
 .pimg_1 {
-  background-image:url('https://images.unsplash.com/photo-1493036585941-4d04b76a4696?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2794&q=80');
-  min-height:100%;
+    background-image: url('assets/background/bg_1-valley.jpg');
+    min-height: 100%;
 }
 
 .pimg_2 {
-  background-image:url('https://images.unsplash.com/photo-1522966767430-eac87e43acc4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-  min-height:430px;
+    background-image: url('assets/background/bg_2-tree_hug.jpg');
+    min-height: 430px;
 }
 
 .pimg_3 {
-  background-image:url('https://images.unsplash.com/photo-1558712289-c0559772894c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80');
-  min-height:430px;
+    background-image: url('assets/background/bg_3-waterfall.jpg');
+    min-height: 430px;
 }
 
 .pimg_4 {
-  background-image:url('https://images.unsplash.com/photo-1527427337751-fdca2f128ce5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
-  min-height:430px;
+    background-image: url('assets/background/bg_4-code.jpg');
+    min-height: 430px;
 }
 
 .pimg_5 {
-  background-image:url('https://images.unsplash.com/photo-1474314881477-04c4aac40a0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  min-height:100%;
+    background-image: url('assets/background/bg_5-group_sunset.jpg');
+    min-height: 100%;
 }
 
 .pimg_6 {
-  background-image:url('https://images.unsplash.com/photo-1500113018993-b5c64275ed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80');
-  min-height:100%;
+    background-image: url('assets/background/bg_6-clouds_hanging_low.jpg');
+    min-height: 100%;
 }
 
 .pimg_7 {
-  background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
-  min-height:100%;
+    background-image: url('assets/background/bg_7-meeting.jpg');
+    min-height: 100%;
 }
 
 .section {
