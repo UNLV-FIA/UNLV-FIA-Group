@@ -23,6 +23,6 @@ This employee needs to be added to the UNLV-FIA Team Page. You can base your cha
 
 ### Important Notes:
 - Ensure the new employee is added alphabetically to the list (leave Brenda & Gretchen as the first two no matter what)
-- Ensure newly added images are similar in size (200x200) or that they are cropped/expanded evenly to fit size requirements
+- Ensure newly added images are similar in size (200x200) or that they are cropped/expanded evenly to fit size requirements. All images should be compressed and stored within the appropriate assets folder
 - Ensure newly added divs, buttons, dialogs, etc. are given unique IDs (if an ID was necessary for that element)
 - Ensure your newly added employee hasn't disrupted the functionality/information of any existing employee
